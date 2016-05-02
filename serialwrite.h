@@ -31,16 +31,20 @@ private slots:
     void dataReadyToRead(void);
 
     void on_btn_clear_clicked();
-
     void on_actionAbout_triggered();
 
 protected:
 
+    void closeEvent(QCloseEvent *event);
 
 private:
     Ui::SerialWrite *ui;
     QSerialPort * m_uart;
     About * m_about;
+    QSettings * m_settings;
+
+    void setSettings(void);
+    void getSettings(void);
 
 };
 

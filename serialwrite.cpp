@@ -7,6 +7,10 @@ SerialWrite::SerialWrite(QWidget *parent) : QMainWindow(parent),ui(new Ui::Seria
 
     connect(ui->input,SIGNAL(returnPressed()),this,SLOT(input_return_Pressed()));
 
+    // Een settings object om de instellingen bij te houden
+    m_settings = new QSettings("4ilo","SerialWrite");
+    getSettings();
+
     // We vragen alle aangesloten serial ports op voor in de lijst
     QList<QSerialPortInfo> poorten = QSerialPortInfo::availablePorts();
     for(int i=0; i< poorten.count(); i++)
@@ -29,6 +33,16 @@ SerialWrite::SerialWrite(QWidget *parent) : QMainWindow(parent),ui(new Ui::Seria
 SerialWrite::~SerialWrite()
 {
     delete ui;
+}
+
+//
+//  We overloaden het close event om settings op te slaan
+//
+void SerialWrite::closeEvent(QCloseEvent *event)
+{
+    // We slagen alles op en sluiten de app
+    setSettings();
+    event->accept();
 }
 
 //
@@ -106,4 +120,26 @@ void SerialWrite::on_btn_clear_clicked()
 void SerialWrite::on_actionAbout_triggered()
 {
     m_about->show();
+}
+
+
+//
+//  We slagen een aantal instellingen op
+//
+void SerialWrite::setSettings(void)
+{
+    m_settings->setValue("baudRate",ui->input_baud->currentIndex());
+    m_settings->setValue("localEcho",ui->input_echo->isChecked());
+    m_settings->setValue("lineEnd",ui->input_einde->currentIndex());
+}
+
+//
+//  We zetten instellingen terug van vorige keer
+//
+void SerialWrite::getSettings(void)
+{
+
+    ui->input_baud->setCurrentIndex(m_settings->value("baudRate").toInt());
+    ui->input_echo->setChecked(m_settings->value("localEcho").toBool());
+    ui->input_einde->setCurrentIndex(m_settings->value("lineEnd").toInt());
 }
