@@ -13,6 +13,8 @@ TEMPLATE = app
 
 ICON = icon.icns
 
+RC_FILE = myapp.rc
+
 
 SOURCES += main.cpp\
         serialwrite.cpp \
