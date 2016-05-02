@@ -17,6 +17,10 @@ SerialWrite::SerialWrite(QWidget *parent) : QMainWindow(parent),ui(new Ui::Seria
     // We maken een serial object
     m_uart = new QSerialPort(this);
 
+    // We maken het about window
+    m_about = new About(this);
+    m_about->setModal(true);
+
 }
 
 //
@@ -94,4 +98,12 @@ void SerialWrite::dataReadyToRead(void)
 void SerialWrite::on_btn_clear_clicked()
 {
     ui->output->clear();
+}
+
+//
+//  Actie als er op about geklikt werd
+//
+void SerialWrite::on_actionAbout_triggered()
+{
+    m_about->show();
 }

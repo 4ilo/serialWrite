@@ -81,6 +81,24 @@
       </item>
       <item>
        <widget class="QComboBox" name="input_baud">
+        <property name="currentIndex">
+         <number>3</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>1200</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>2400</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>4800</string>
+         </property>
+        </item>
         <item>
          <property name="text">
           <string>9600</string>
@@ -89,6 +107,16 @@
         <item>
          <property name="text">
           <string>19200</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>38400</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>57600</string>
          </property>
         </item>
         <item>
@@ -155,11 +183,23 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_Configure">
    <property name="text">
     <string>Instellen</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About</string>
    </property>
   </action>
  </widget>

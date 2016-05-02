@@ -7,6 +7,7 @@
 #include <QSerialPortInfo>
 
 #include "historylineedit.h"
+#include "about.h"
 
 namespace Ui {
 class SerialWrite;
@@ -31,12 +32,15 @@ private slots:
 
     void on_btn_clear_clicked();
 
+    void on_actionAbout_triggered();
+
 protected:
 
 
 private:
     Ui::SerialWrite *ui;
     QSerialPort * m_uart;
+    About * m_about;
 
 };
 

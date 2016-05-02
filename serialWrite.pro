@@ -14,9 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         serialwrite.cpp \
-    historylineedit.cpp
+    historylineedit.cpp \
+    about.cpp
 
 HEADERS  += serialwrite.h \
-    historylineedit.h
+    historylineedit.h \
+    about.h
 
-FORMS    += serialwrite.ui
+FORMS    += serialwrite.ui \
+    about.ui
