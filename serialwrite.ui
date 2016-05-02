@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>405</width>
+    <width>450</width>
     <height>387</height>
    </rect>
   </property>
@@ -25,11 +25,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLineEdit" name="input">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-       </widget>
+       <widget class="historyLineEdit" name="input" native="true"/>
       </item>
       <item>
        <widget class="QPushButton" name="btn_send">
@@ -38,6 +34,13 @@
         </property>
         <property name="text">
          <string>Send</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_clear">
+        <property name="text">
+         <string>Clear</string>
         </property>
        </widget>
       </item>
@@ -96,6 +99,32 @@
        </widget>
       </item>
       <item>
+       <widget class="QLabel" name="lbl_einde">
+        <property name="text">
+         <string>Einde</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="input_einde">
+        <item>
+         <property name="text">
+          <string/>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>\n</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>\r\n</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
        <widget class="QCheckBox" name="input_echo">
         <property name="text">
          <string>Local Echo</string>
@@ -122,17 +151,10 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>405</width>
+     <width>450</width>
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>File</string>
-    </property>
-    <addaction name="action_Configure"/>
-   </widget>
-   <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_Configure">
@@ -142,6 +164,14 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>historyLineEdit</class>
+   <extends>QWidget</extends>
+   <header>historylineedit.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
