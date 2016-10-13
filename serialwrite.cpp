@@ -148,3 +148,29 @@ void SerialWrite::getSettings(void)
     ui->input_echo->setChecked(m_settings->value("localEcho").toBool());
     ui->input_einde->setCurrentIndex(m_settings->value("lineEnd").toInt());
 }
+
+//
+//  We toggelen de continue mode
+//
+void SerialWrite::on_input_continu_stateChanged(int arg1)
+{
+    if(arg1)
+    {
+        ui->btn_send->setEnabled(false);
+        connect(ui->input,SIGNAL(textEdited(QString)),this,SLOT(input_key_Pressed(QString)));
+    }
+    else
+    {
+        ui->btn_send->setEnabled(true);
+        disconnect(ui->input,SIGNAL(textEdited(QString)),this,SLOT(input_key_Pressed(QString)));
+    }
+}
+
+//
+//  Slot als er bij continu een key geprest is
+//  Hier gaan we gewoon elke keer zenden
+//
+void SerialWrite::input_key_Pressed(QString text)
+{
+    on_btn_send_clicked();
+}

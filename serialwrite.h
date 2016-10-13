@@ -27,11 +27,16 @@ signals:
 private slots:
     void on_btn_send_clicked();
     void on_btn_Open_clicked();
+
     void input_return_Pressed();
+    void input_key_Pressed(QString);
+
     void dataReadyToRead(void);
 
     void on_btn_clear_clicked();
     void on_actionAbout_triggered();
+
+    void on_input_continu_stateChanged(int arg1);
 
 protected:
 
