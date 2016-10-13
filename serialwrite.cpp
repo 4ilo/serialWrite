@@ -87,6 +87,7 @@ void SerialWrite::on_btn_Open_clicked()
     {
         ui->btn_send->setEnabled(true);
         connect(m_uart,SIGNAL(readyRead()),this,SLOT(dataReadyToRead()));
+        ui->btn_Open->setEnabled(false);
     }
 }
 
@@ -103,7 +104,11 @@ void SerialWrite::input_return_Pressed()
 //
 void SerialWrite::dataReadyToRead(void)
 {
-    ui->output->appendPlainText(m_uart->readAll());
+    ui->output->moveCursor(QTextCursor::End);
+    ui->output->insertPlainText(m_uart->readAll());
+    ui->output->moveCursor(QTextCursor::End);
+
+    //ui->output->appendPlainText(m_uart->readAll());
 }
 
 //
