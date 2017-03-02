@@ -19,7 +19,7 @@ RC_FILE = myapp.rc
 SOURCES += main.cpp\
         serialwrite.cpp \
     historylineedit.cpp \
-    about.cpp
+    about.cpp \
 
 HEADERS  += serialwrite.h \
     historylineedit.h \

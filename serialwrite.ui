@@ -162,6 +162,11 @@
           <string>\r\n</string>
          </property>
         </item>
+        <item>
+         <property name="text">
+          <string>\r</string>
+         </property>
+        </item>
        </widget>
       </item>
       <item>
@@ -192,7 +197,7 @@
      <x>0</x>
      <y>0</y>
      <width>544</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuHelp">

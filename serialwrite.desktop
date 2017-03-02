@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=SerialWrite
+Exec=gksudo /opt/serialWrite/serialWrite
+Icon=/opt/serialWrite/serialWrite.png
+Categories=GTK;GNOME;Utility;
